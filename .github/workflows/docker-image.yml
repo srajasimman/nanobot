@@ -31,9 +31,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          cache-from: type=registry,ref=docker.io/${{ github.repository_owner }}/${{ github.repository }}:buildcache
-          cache-to: type=registry,ref=docker.io/${{ github.repository_owner }}/${{ github.repository }}:buildcache,mode=max
           push: ${{ github.event_name == 'push' }}
           tags: |
-            docker.io/${{ github.repository_owner }}/${{ github.repository }}:latest
-            docker.io/${{ github.repository_owner }}/${{ github.repository }}:${{ github.sha }}
+            docker.io/${{ github.repository }}:latest
+            docker.io/${{ github.repository }}:${{ github.sha }}
